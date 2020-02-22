@@ -41,7 +41,42 @@
 
 ## Flask: 极简主义的应用程序开发框架
 
+Flask是一个极简主义（或微型的）框架，它避免强加处理关键事物的方式。相反，Flask允许开发人员使用他们期望且熟悉的工具。为此，它附带了自己的扩展索引，并且已经存在大量工具来处理从登录到日志记录的所有内容。
+
+它不是一个严格的"常规"框架，部分依赖于配置文件，坦率地说，当涉及到开始和保持事情在控制中，这使得很多事情更容易。
+
 ## 本文中的选择
+
+正如我们刚刚在上一节中介绍的那样，Flask 的做事方式包括使用你感到最舒服的工具。在我们的文章中，我们将使用扩展和库（即数据库提取层）方面最常见的（也是明智的）选择：
+
+- SQLAlchemy (通过Flask-SQLAlchemy)
+- WTForms (通过Flask-WTF)
+
+### Flask-SQLAlchemy
+
+向 Flask 添加 SQLAlchemy 支持。又快又容易。
+
+这是被认可的扩展。
+
+```bash
+作者: Armin Ronacher
+PyPI页面: Flask-SQLAlchemy
+文档: 阅读packages.python.org上的文档
+On Github: [mitsuhiko/flask-sqlalchemy](https://github.com/mitsuhiko/flask-sqlalchemy)
+```
+
+### Flask-WTF
+
+Flask-WTF 提供与 WTForms 的简单集成。此集成包括可选的 CSRF 处理，以提高安全性。
+
+这是被认可的扩展。
+
+```bash
+作者:  Anthony Ford (created by Dan Jacob)
+PyPI页面: Flask-WTF
+文档: 阅读packages.python.org上的文档
+On Github: [ajford/flask-wtf](https://github.com/mitsuhiko/flask-wtf)
+```
 
 ## 为Flask准备系统
 
