@@ -84,6 +84,13 @@ On Github: [ajford/flask-wtf](https://github.com/mitsuhiko/flask-wtf)
 
 **注意：** 我们将在运行了最新版可用操作系统（即 Ubuntu 13）的新近Droplet（一款DigitalOcean云主机产品）实例上工作。强烈建议你在新系统上测试所有内容，尤其是如果你积极为客户服务。
 
+### 准备操作系统
+
+### 设置Python, pip and virtualenv
+
+#### pip
+
+#### virtualenv
 
 ## 构建应用程序目录
 
