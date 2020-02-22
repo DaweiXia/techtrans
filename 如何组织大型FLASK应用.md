@@ -80,6 +80,11 @@ On Github: [ajford/flask-wtf](https://github.com/mitsuhiko/flask-wtf)
 
 ## 为Flask准备系统
 
+在我们开始构建大型 Flask 应用程序之前，让我们准备我们的系统并下载（和安装）Flask 。
+
+**注意：** 我们将在运行了最新版可用操作系统（即 Ubuntu 13）的新近Droplet（一款DigitalOcean云主机产品）实例上工作。强烈建议你在新系统上测试所有内容，尤其是如果你积极为客户服务。
+
+
 ## 构建应用程序目录
 
 ## 使用模块和Blueprints（组建）
