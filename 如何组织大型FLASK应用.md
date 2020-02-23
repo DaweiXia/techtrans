@@ -127,6 +127,14 @@ export PATH="/usr/local/bin:$PATH"
 
 #### virtualenv
 
+最好将 Python 应用程序及其所有依赖项一起包含在其自己的环境中。环境可以被理解为（简单地说）一个存有所有东西的独立位置（一个文件夹）。为此，使用名为 virtualenv 的工具。
+
+运行以下操作以使用 pip 安装 virtualenv：
+
+```bash
+sudo pip install virtualenv
+```
+
 ## 构建应用程序目录
 
 ## 使用模块和Blueprints（组建）
