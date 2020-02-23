@@ -86,6 +86,23 @@ On Github: [ajford/flask-wtf](https://github.com/mitsuhiko/flask-wtf)
 
 ### 准备操作系统
 
+为了有一个稳定的服务器，我们必须有所有相关工具和库的最新和良好维护。
+
+为了确保我们拥有默认应用程序的最新可用版本，让我们从更新开始。
+
+在基于 Debian 的系统（即 Ubuntu、Debian）上运行以下命令：
+
+```bash
+aptitude    update
+aptitude -y upgrade
+```
+
+要获得必要的开发工具，请使用以下命令安装"build-essential"：
+
+```bash
+aptitude install -y build-essential python-dev python2.7-dev
+```
+
 ### 设置Python, pip and virtualenv
 
 #### pip
