@@ -115,6 +115,16 @@ aptitude install -y build-essential python-dev python2.7-dev
 
 #### pip
 
+pip 是一个包管理器，它将帮助我们安装我们需要的应用程序包。
+
+运行以下命令以安装 pip：
+
+```bash
+curl https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py | python -
+curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python -
+export PATH="/usr/local/bin:$PATH"
+```
+
 #### virtualenv
 
 ## 构建应用程序目录
