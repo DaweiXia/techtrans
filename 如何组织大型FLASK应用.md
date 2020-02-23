@@ -105,6 +105,14 @@ aptitude install -y build-essential python-dev python2.7-dev
 
 ### 设置Python, pip and virtualenv
 
+在 Ubuntu 和 Debian 上，默认有一个最新版本的 Python 解释器（您可以使用）。只剩有限几个额外软件包需要我们去安装：
+
+- python-dev（开发工具）
+- pip（用于管理包）
+- virtualenv（用于创建独立的虚拟环境）
+
+**注意：** 此处给出的说明保持简短。要了解更多信息，请查看我们关于 pip 和 virtualenv 的"how-to"一文：[Using virtualenv, Installing with Pip, and Managing Packages.](https://www.digitalocean.com/community/tutorials/common-python-tools-using-virtualenv-installing-with-pip-and-managing-packages)
+
 #### pip
 
 #### virtualenv
