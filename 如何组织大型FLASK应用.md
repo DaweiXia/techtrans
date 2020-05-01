@@ -188,6 +188,15 @@ mkdir ~/LargeApp/app/static
 
 ### 创建一个虚拟环境
 
+使用虚拟环境能带来大量好处。强烈建议你为每个应用程序使用心的虚拟环境。将virtualenv文件夹保留在应用程序内部是一种使事情井然有序的好方法。
+
+运行以下命令以创建安装了pip的新虚拟环境。
+
+```bash
+cd         ~/LargeApp
+virtualenv env
+```
+
 ### 创建应用程序文件
 
 ### 安装Flask和应用程序依赖项
