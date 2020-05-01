@@ -304,4 +304,38 @@ app.run(host='0.0.0.0', port=8080, debug=True)
 
 ### 使用nano编辑“config.py”
 
+```bash
+nano ~/LargeApp/config.py
+```
+
+敲入内容：
+
+```bash
+# 设置允许调试，此语句只用于开发环境
+DEBUG = True
+
+# 定义应用程序目录
+import os
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))  
+
+# 定义数据库 - 在此示例中我们使用SQLite
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'app.db')
+DATABASE_CONNECT_OPTIONS = {}
+
+# 设置应用程序线程数。一个普遍通用假设是每个可用处理器内核
+# 使用2个线程。一个用来处理传入请求，一个用来执行后台操作。
+THREADS_PER_PAGE = 2
+
+# 启用针对“跨站点请求伪造（CSRF）”的保护
+CSRF_ENABLED     = True
+
+# 使用安全，唯一且绝对保密的密钥对数据进行签名。
+CSRF_SESSION_KEY = "secret"
+
+# 签署Cookie的秘钥
+SECRET_KEY = "secret"
+```
+
+使用CTRL + X保存并退出，然后使用Y确认。
+
 ## 创建模块/组件
