@@ -172,8 +172,6 @@ sudo pip install virtualenv
 
 ### 安装Flask和应用程序依赖项
 
-### 
-
 ## 使用模块和Blueprints（组建）
 
 ## 创建应用程序（run.py、init.py等）
