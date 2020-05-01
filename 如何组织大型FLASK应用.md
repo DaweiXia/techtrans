@@ -224,6 +224,21 @@ touch ~/LargeApp/app/__init__.py
 
 ### 安装Flask和应用程序依赖项
 
+一切准备就绪后，要开始使用Flask进行开发，请使用pip下载并安装它。
+
+运行以下命令在虚拟环境env中安装Flask。
+
+```bash
+cd ~/LargeApp
+env/bin/pip install flask
+env/bin/pip install flask-sqlalchemy
+env/bin/pip install flask-wtf
+```
+
+注意：在这里，我们在未激活虚拟环境的情况下下载和安装Flask。但是，鉴于我们使用的是虚拟环境本身的pip，它可以完成相同的任务。如果你使用的是激活的环境，则可以使用pip代替。
+
+就是这样！ 现在，我们准备使用蓝图（blueprints）构建模块化的更大的Flask应用程序。
+
 ## 使用模块和Blueprints（组建）
 
 ## 创建应用程序（run.py、init.py等）
