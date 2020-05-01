@@ -199,6 +199,29 @@ virtualenv env
 
 ### 创建应用程序文件
 
+这一步，我们将在继续使用模块和蓝图（blueprints）之前形成基本的应用程序文件。
+
+运行以下命令以创建基本的应用程序文件：
+
+```bash
+touch ~/LargeApp/run.py
+touch ~/LargeApp/config.py
+touch ~/LargeApp/app/__init__.py
+```
+
+我们目前的结构：
+
+```bash
+~/LargeApp
+    |-- run.py
+    |-- config.py
+    |__ /env             # Virtual Environment
+    |__ /app             # Our Application Module
+         |-- __init__.py
+         |__ /templates
+         |__ /static
+```
+
 ### 安装Flask和应用程序依赖项
 
 ## 使用模块和Blueprints（组建）
