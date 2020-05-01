@@ -137,6 +137,33 @@ sudo pip install virtualenv
 
 ## 构建应用程序目录
 
+我们将使用LargeApp作为我们的示例应用程序文件夹的名称。其中，我们将在应用程序包（即app）和其他一些文件（例如用于运行测试或开发服务器的“run.py”和用于保存Flask配置的“config.py”）旁边有一个虚拟环境（即env）。
+
+该结构（如下所示）是高度可扩展的，并且它是被构建来利用Flask和其他库提供的所有有用工具的。当你看到它的时候别害怕，因为我们将通过构建所有内容来逐步解释所有内容。
+
+目标示例结构：
+
+```bash
+~/LargeApp
+    |-- run.py
+    |-- config.py
+    |__ /env             # Virtual Environment
+    |__ /app             # Our Application Module
+         |-- __init__.py
+         |-- /module_one
+             |-- __init__.py
+             |-- controllers.py
+             |-- models.py
+         |__ /templates
+             |__ /module_one
+                 |-- hello.html
+         |__ /static
+         |__ ..
+         |__ .
+    |__ ..
+    |__ .
+```
+
 ## 使用模块和Blueprints（组建）
 
 ## 创建应用程序（run.py、init.py等）
