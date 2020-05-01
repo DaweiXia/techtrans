@@ -286,6 +286,22 @@ env/bin/pip install flask-wtf
 
 ### 使用nano编辑“run.py”
 
+注意：nano是Linux系统中的一种文本编辑器。
+
+```bash
+nano ~/LargeApp/run.py
+```
+
+敲入内容：
+
+```bash
+# 运行测试服务器
+from app import app
+app.run(host='0.0.0.0', port=8080, debug=True)
+```
+
+使用CTRL + X保存并退出，然后使用Y确认。
+
 ### 使用nano编辑“config.py”
 
 ## 创建模块/组件
