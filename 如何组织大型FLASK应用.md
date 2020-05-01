@@ -239,7 +239,7 @@ env/bin/pip install flask-wtf
 
 就是这样！ 现在，我们准备使用蓝图（blueprints）构建模块化的更大的Flask应用程序。
 
-## 使用模块和Blueprints（组建）
+## 使用模块和Blueprints（组件）
 
 ## 创建应用程序（run.py、init.py等）
 
