@@ -284,4 +284,8 @@ env/bin/pip install flask-wtf
 
 在本节中，我们将继续前面的步骤，并从实际的应用程序编码开始，然后继续创建我们的第一个模块化组件（使用blueprints）：mod_auth，用于处理所有与身份验证有关的过程（即登录，注册等）。
 
+### 使用nano编辑“run.py”
+
+### 使用nano编辑“config.py”
+
 ## 创建模块/组件
