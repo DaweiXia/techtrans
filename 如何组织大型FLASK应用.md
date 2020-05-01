@@ -265,6 +265,21 @@ env/bin/pip install flask-wtf
 
 ### 模块模板
 
+为支持最大模块化，我们将按照上面的约定构造“templates”文件夹，并包含一个新文件夹（与模块具有相同或相似的相关名称）以包含其模板文件。
+
+目标示例模板目录结构（在LargeApp内部）：
+
+```bash
+/templates
+    |-- 404.html
+    |__ /auth
+         |-- signin.html
+         |-- signup.html
+         |-- forgot.html
+         |-- ..
+         |-- .
+```
+
 ## 创建应用程序（run.py、init.py等）
 
 ## 创建模块/组件
