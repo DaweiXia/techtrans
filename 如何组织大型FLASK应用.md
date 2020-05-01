@@ -166,6 +166,26 @@ sudo pip install virtualenv
 
 ### 创建应用程序文件夹
 
+让我们从创建主文件夹开始。
+
+依次运行以下命令：
+
+```bash
+mkdir ~/LargeApp
+mkdir ~/LargeApp/app
+mkdir ~/LargeApp/app/templates
+mkdir ~/LargeApp/app/static
+```
+
+我们目前的结构：
+
+```bash
+~/LargeApp
+    |__ /app             # Our Application Module
+         |__ /templates
+         |__ /static
+```
+
 ### 创建一个虚拟环境
 
 ### 创建应用程序文件
