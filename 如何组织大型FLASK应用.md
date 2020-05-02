@@ -529,47 +529,6 @@ def signin():
 
 ### 步骤5：在“app/init.py”中设置应用程序
 
-```bash
-nano ~/LargeApp/app/__init__.py
-```
-
-敲入如下内容：
-
-```bash
-# 导入Flask与模板渲染函数
-from flask import Flask, render_template
-
-# 导入SQLAlchemy
-from flask.ext.sqlalchemy import SQLAlchemy
-
-# 定义WSGI应用程序对象
-app = Flask(__name__)
-
-# 配置
-app.config.from_object('config')
-
-# 定义已经被模块和控制器（视图）导入的数据库对象
-db = SQLAlchemy(app)
-
-# HTTP错误处理示例
-@app.errorhandler(404)
-def not_found(error):
-    return render_template('404.html'), 404
-
-# 使用bluprint处理器变量（mod_auth）导入一个模块或组件
-from app.mod_auth.controllers import mod_auth as auth_module
-
-# 注册blueprint(s)
-app.register_blueprint(auth_module)
-# app.register_blueprint(xyz_module)
-# ..
-
-# 建立数据库：这将用SQLAlchemy创建数据库
-db.create_all()
-```
-
-使用CTRL + X保存并退出，然后使用Y确认。
-
 ### 步骤6：创建模板
 
 ### 步骤7：使用模块
