@@ -636,3 +636,22 @@ nano ~/LargeApp/app/templates/auth/signin.html
 **注意**：这个模板文件是一个非常简单且不完整的示例，仅出于演示目的而创建。强烈建议你阅读[Jinja2文档](https://jinja.palletsprojects.com/en/2.11.x/)并使用基本文件来构建网站的模板。
 
 ### 步骤7：使用模块
+
+创建完第一个模块后，就该查看所有实际效果了。
+
+使用run.py运行开发服务器：
+
+```bash
+cd ~/LargeApp
+env/bin/python run.py
+```
+
+这将启动位于端口8080的开发（即测试）服务器。
+
+通过如下URL来访问模块：
+
+```bash
+http://[your droplet's IP]/auth/signin
+```
+
+尽管你无法登录，但是已经可以通过输入一些示例性数据或测试其验证器来查看它的运行情况了。
