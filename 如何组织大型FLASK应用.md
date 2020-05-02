@@ -397,7 +397,7 @@ touch ~/LargeApp/app/templates/404.html
 nano ~/LargeApp/app/mod_auth/models.py
 ```
 
-将如下不言自明的内容敲入 models.py
+将如下内容敲入 models.py
 
 ```bash
 # 从主应用程序模块导入数据库对象(db)
@@ -445,6 +445,32 @@ class User(Base):
 使用CTRL + X保存并退出，然后使用Y确认。
 
 ### 步骤3：定义模块表单
+
+```bash
+nano ~/LargeApp/app/mod_auth/forms.py
+```
+
+将如下内容敲入 forms.py
+
+```bash
+# 导入 Form 和 RecaptchaField (可选)
+from flask.ext.wtf import Form # , RecaptchaField
+
+# 导入表单元素，如：TextField 和 BooleanField (可选)
+from wtforms import TextField, PasswordField # BooleanField
+
+# 导入表单验证器
+from wtforms.validators import Required, Email, EqualTo
+
+# 定义登陆表单 (WTForms)
+class LoginForm(Form):
+    email    = TextField('Email Address', [Email(),
+                Required(message='Forgot your email address?')])
+    password = PasswordField('Password', [
+                Required(message='Must provide a password. ;-)')])
+```
+
+使用CTRL + X保存并退出，然后使用Y确认。
 
 ### 步骤4：定义应用程序控制器（视图）
 
