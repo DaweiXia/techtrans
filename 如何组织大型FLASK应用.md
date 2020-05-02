@@ -346,6 +346,51 @@ SECRET_KEY = "secret"
 
 ### 步骤1：结构化模块
 
+如我们所愿，让我们创建第一个模块的（mod_auth）目录和文件以开始对其进行操作。
+
+```bash
+# 在 *app* 模块中创建mod_auth模块
+mkdir ~/LargeApp/app/mod_auth
+
+# 创建模块模板存放的目录
+mkdir ~/LargeApp/app/templates/auth
+
+# 创建__init__.py以将目录设置为Python模块
+touch ~/LargeApp/app/mod_auth/__init__.py
+
+# 创建模块的控制器（视图）与数据模型等文件
+touch ~/LargeApp/app/mod_auth/controllers.py
+touch ~/LargeApp/app/mod_auth/models.py
+touch ~/LargeApp/app/mod_auth/forms.py
+
+# 创建模块的模板文件
+touch ~/LargeApp/app/templates/auth/signin.html
+
+# 创建 http 404错误页
+touch ~/LargeApp/app/templates/404.html
+```
+
+完成这些操作后，文件夹结构应如下所示：
+
+```bash
+~/LargeApp
+    |-- run.py
+    |-- config.py
+    |__ /env             # 虚拟环境
+    |__ /app             # 我们的应用程序模块
+         |-- __init__.py
+         |-- /mod_auth   # 我们的第一个模块, mod_auth
+             |-- __init__.py
+             |-- controllers.py
+             |-- models.py
+             |-- forms.py
+         |__ /templates
+             |-- 404.html
+             |__ /auth
+                 |-- signin.html
+         |__ /static
+```
+
 ### 步骤2：定义模块数据模型
 
 ### 步骤3：定义模块表单
