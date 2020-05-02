@@ -474,7 +474,101 @@ class LoginForm(Form):
 
 ### 步骤4：定义应用程序控制器（视图）
 
+```bash
+nano ~/LargeApp/app/mod_auth/controllers.py
+```
+
+将如下内容敲入 controllers.py
+
+```bash
+# 导入flask依赖项
+from flask import Blueprint, request, render_template, \
+                  flash, g, session, redirect, url_for
+
+# 导入密码或加密辅助工具
+from werkzeug import check_password_hash, generate_password_hash
+
+# 从主app模块导入数据库对象
+from app import db
+
+# 导入模块表单
+from app.mod_auth.forms import LoginForm
+
+# 导入模块数据模型 (如：User)
+from app.mod_auth.models import User
+
+# 定义 'auth' blueprint， 设置url前缀：app.url/auth
+mod_auth = Blueprint('auth', __name__, url_prefix='/auth')
+
+# 设置路由以及接受的请求类型
+@mod_auth.route('/signin/', methods=['GET', 'POST'])
+def signin():
+
+    # If sign in form is submitted
+    form = LoginForm(request.form)
+
+    # Verify the sign in form
+    if form.validate_on_submit():
+
+        user = User.query.filter_by(email=form.email.data).first()
+
+        if user and check_password_hash(user.password, form.password.data):
+
+            session['user_id'] = user.id
+
+            flash('Welcome %s' % user.name)
+
+            return redirect(url_for('auth.home'))
+
+        flash('Wrong email or password', 'error-message')
+
+    return render_template("auth/signin.html", form=form)
+```
+
+使用CTRL + X保存并退出，然后使用Y确认。
+
 ### 步骤5：在“app/init.py”中设置应用程序
+
+```bash
+nano ~/LargeApp/app/__init__.py
+```
+
+敲入如下内容：
+
+```bash
+# 导入Flask与模板渲染函数
+from flask import Flask, render_template
+
+# 导入SQLAlchemy
+from flask.ext.sqlalchemy import SQLAlchemy
+
+# 定义WSGI应用程序对象
+app = Flask(__name__)
+
+# 配置
+app.config.from_object('config')
+
+# 定义已经被模块和控制器（视图）导入的数据库对象
+db = SQLAlchemy(app)
+
+# HTTP错误处理示例
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
+# 使用bluprint处理器变量（mod_auth）导入一个模块或组件
+from app.mod_auth.controllers import mod_auth as auth_module
+
+# 注册blueprint(s)
+app.register_blueprint(auth_module)
+# app.register_blueprint(xyz_module)
+# ..
+
+# 建立数据库：这将用SQLAlchemy创建数据库
+db.create_all()
+```
+
+使用CTRL + X保存并退出，然后使用Y确认。
 
 ### 步骤6：创建模板
 
