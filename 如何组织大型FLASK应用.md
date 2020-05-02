@@ -393,6 +393,57 @@ touch ~/LargeApp/app/templates/404.html
 
 ### 步骤2：定义模块数据模型
 
+```bash
+nano ~/LargeApp/app/mod_auth/models.py
+```
+
+将如下不言自明的内容敲入 models.py
+
+```bash
+# 从主应用程序模块导入数据库对象(db)
+# 我们将在下一部分的/app/__init__.py中定义它。
+from app import db
+
+# 定义一个基础模型让其他数据库表继承
+class Base(db.Model):
+
+    __abstract__  = True
+
+    id            = db.Column(db.Integer, primary_key=True)
+    date_created  = db.Column(db.DateTime,  default=db.func.current_timestamp())
+    date_modified = db.Column(db.DateTime,  default=db.func.current_timestamp(),
+                                           onupdate=db.func.current_timestamp())
+
+# 定义用户模型
+class User(Base):
+
+    __tablename__ = 'auth_user'
+
+    # 用户名
+    name    = db.Column(db.String(128),  nullable=False)
+
+    # 身份数据： 邮箱 & 密码
+    email    = db.Column(db.String(128),  nullable=False,
+                                            unique=True)
+    password = db.Column(db.String(192),  nullable=False)
+
+    # 认证数据: 角色 & 状态
+    role     = db.Column(db.SmallInteger, nullable=False)
+    status   = db.Column(db.SmallInteger, nullable=False)
+
+    # 初始化方法
+    def __init__(self, name, email, password):
+
+        self.name     = name
+        self.email    = email
+        self.password = password
+
+    def __repr__(self):
+        return '<User %r>' % (self.name) 
+```
+
+使用CTRL + X保存并退出，然后使用Y确认。
+
 ### 步骤3：定义模块表单
 
 ### 步骤4：定义应用程序控制器（视图）
