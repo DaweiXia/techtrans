@@ -572,4 +572,67 @@ db.create_all()
 
 ### 步骤6：创建模板
 
+```bash
+nano ~/LargeApp/app/templates/auth/signin.html
+```
+
+敲入如下内容：
+
+```bash
+{% macro render_field(field, placeholder=None) %}
+{% if field.errors %}
+<div>
+{% elif field.flags.error %}
+<div>
+{% else %}
+<div>
+{% endif %}
+    {% set css_class = 'form-control ' + kwargs.pop('class', '') %}
+    {{ field(class=css_class, placeholder=placeholder, **kwargs) }}
+</div>
+{% endmacro %}
+
+<div>
+  <div>
+    <legend>Sign in</legend>
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+    {% if errors %}
+    <div>
+    {% for error in errors %}
+    {{ error }}<br>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% if form.errors %}
+    <div>
+    {% for field, error in form.errors.items() %}
+    {% for e in error %}
+    {{ e }}<br>
+    {% endfor %}
+    {% endfor %}
+    </div>
+    {% endif %}
+    <form method="POST" action="." accept-charset="UTF-8" role="form">
+      {{ form.csrf_token }}
+      {{ render_field(form.email, placeholder="Your Email Address",
+                                  autofocus="") }}
+      {{ render_field(form.password, placeholder="Password") }}
+      <div>
+      <label>
+        <input type="checkbox" name="remember" value="1"> Remember Me
+      </label>
+      <a role="button" href="">Forgot your password?</a><span class="clearfix"></span>
+      </div>
+      <button type="submit" name="submit">Sign in</button>
+    </form>  
+  </div>
+</div>
+```
+
+使用CTRL + X保存并退出，然后使用Y确认。
+
+**注意**：这个模板文件是一个非常简单且不完整的示例，仅出于演示目的而创建。强烈建议你阅读[Jinja2文档](https://jinja.palletsprojects.com/en/2.11.x/)并使用基本文件来构建网站的模板。
+
 ### 步骤7：使用模块
